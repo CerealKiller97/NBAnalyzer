@@ -1,0 +1,86 @@
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+#RewriteRule ^index.php\/page=([a-z]+).php$ /$1 [QSA,L]
+
+#RewriteCond %{HTTP_HOST} ^www.http://localhost/web-php-site/index.php?page=admin.com
+#RewriteRule (.*) http://localhost.com/$1 [R=301,L]
+#RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+#RewriteEngine On
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?page=$1
+
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^([^\.]+)/$ $1.php [NC,L]
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?page=$1
+
+#RewriteEngine On
+#RewriteRule ^([^/]*)$ /web-php-site/index.php?page=$1 [L]
+
+#<IfModule mod_rewrite.c>
+  #RewriteEngine on
+  #RewriteRule ^/?(.*).(php)$ /$1 [R=301,L]
+#</IfModule>
+
+#RewriteRule ^/?(.+)$ index.php?url=$1 [QSA,L]
+
+#php_value display_errors On
+#php_flag magic_quotes 1
+#php_flag magic_quotes_gpc 1
+#php_value mbstring.http_input auto
+#php_value date.timezone Europe/Belgrade
+
+#RewriteEngine On
+
+# Unless directory, remove trailing slash
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([^/]+)/$ http://%{HTTP_HOST}/folder/$1 [R=301,L]
+
+# Redirect external .php requests to extensionless url
+#RewriteCond %{THE_REQUEST} ^(.+)\.php([#?][^\ ]*)?\ HTTP/
+#RewriteRule ^(.+)\.php$ http://%{HTTP_HOST}/folder/$1 [R=301,L]
+
+# Resolve .php file for extensionless php urls
+#RewriteRule ^([^/.]+)$ $1.php [L]
+
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} ^/
+#RewriteCond %{QUERY_STRING} ^p=23$
+#RewriteRule ^(.*)$ http://www.domain.com/new-awesome-page/? [R=301,L]
+
+#<IfModule mod_rewrite.c>
+#Options +FollowSymLinks
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?file=$1 [L,QSA]
+#</IfModule>
+
+#ErrorDocument 404 localhost 404.php
+
+#RewriteCond %{HTTP_HOST} !^www.yourwebsite.com [NC]
+
+#RewriteRule ^(.*)$ http://www.yourwebsite.com/$1 [R=301,L]
+
+
+#RewriteBase /
+
+#RewriteCond %{REQUEST_FILENAME} !-l
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^team/(.*)$ index.php?page=team&id=$1 [L]
+
+#RewriteCond %{REQUEST_FILENAME} !-l
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?page=$1 [L]
+
+
+#Znas mraleeeu uz sta se  rimuju praline mralinaeeeeeeeeeeee mraleeeeeeu
