@@ -9,7 +9,7 @@ function getPlayersForTeam ($id, $conn) {
   $stmt = $conn->prepare($sql);
   $stmt->execute([$id]);
   $result = $stmt->fetchAll();
-  return ($stmt->rowCount() > 0)? $result : 'No players found';
+  return ($stmt->rowCount() > 0)? $result : false;
 }
 
 function numOfPlayers($conn) {
@@ -17,5 +17,17 @@ function numOfPlayers($conn) {
   $stmt = $conn->prepare($sql);
   $stmt->execute();
   $result = $stmt->fetch();
+  return ($stmt->rowCount() === 1)? $result : false;
+}
+
+function getAllPlayers ($conn) {
+  $sql = 'SELECT p.playerID,p.firstName,p.lastName,t.name,po.position,po.abbreviation, p.height, p.weight,p.born, p.age,      p.jersey, p.img, t.picture 
+  FROM player p INNER JOIN position po
+  ON p.positionID = po.positionID INNER join team t
+  ON p.teamID = t.teamID 
+  ORDER BY p.lastName ASC ;';
+  $stmt = $conn->prepare($sql);
+  $stmt->execute();
+  $result = $stmt->fetchAll();
   return ($stmt->rowCount() > 0)? $result : false;
 }

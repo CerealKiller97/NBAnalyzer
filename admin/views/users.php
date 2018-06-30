@@ -25,7 +25,6 @@ if (!isset($_SESSION['user'])) {
                 </div>
 
             </div>
-            <h2 class="text-center">Users</h2>
             <table class="table table-hover mt-5">
                 <thead class="bg-primary text-white">
                     <tr>
@@ -96,8 +95,8 @@ if (!isset($_SESSION['user'])) {
     <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog cascading-modal" role="document">
             <div class="modal-content">
-                <div class="registerHeader modal-header primary-color white-text">
-                    <h4 id="info" class="title">
+                <div class="registerHeader addUserHeader modal-header primary-color white-text">
+                    <h4 id="addUserHeading" class="title">
                         Add New User
                     </h4>
 

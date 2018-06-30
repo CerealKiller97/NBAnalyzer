@@ -1,3 +1,5 @@
+<?php $comments = getAllComments($conn); ?>
+
 <main class="pt-5 mx-lg-5">
   <div class="container-fluid">
       <div class="card mb-4 wow animated fadeIn">
@@ -10,6 +12,35 @@
       </div>
     </div>
 
-<kbd>Enter</kbd>
+  <table class="table table-hover">
+      <thead class="primary-color text-white">
+        <tr>
+          <th>Avatar</th>
+          <th>Username</th>          
+          <th>Comment</th>
+          <th>Post</th>          
+
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($comments as $comment) : ?>
+        <tr>
+          <td>
+            <img class="club-photo <?= ($comment->avatar === 'assets/avatars/user.png')? 'bg-primary': ''  ?>" src="../<?= $comment->avatar ?>" alt="<?= $comment->name ?> logo" />
+          </td>
+          <td>
+            <?= $comment->username ?>
+          </td>
+          <td><?= $comment->body ?></td>
+          <td><?= $comment->title ?></td>
+          <td>
+            <button class="btn btn-primary mb-0" data-id="<?= $comment->postID ?>" data-toggle="modal" data-target="#updateTeam">Update</button>
+            <button class="btn btn-danger deleteLink mb-0" data-id="<?= $comment->postID ?>" data-toggle="modal" data-target="#deleteTeam">Delete</button>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
   </div>
 </main>

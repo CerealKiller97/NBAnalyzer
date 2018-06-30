@@ -40,39 +40,31 @@
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/mdb.min.js"></script>
-<?php if ($page === 'dashboard') : ?>
-<script type="text/javascript">
-  // Animations initialization
-  //pie
-  //pie
-  /*       let teams = ['PHX','SA','CL','BS ','NY']
-              var ctxP = document.getElementById("pieChart").getContext('2d');
-              var myPieChart = new Chart(ctxP, {
-                  type: 'pie',
-                  data: {
-                      labels: teams,
-                      datasets: [{
-                          data: [300, 50, 100, 40, 120],
-                          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-                          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
-                      }]
-                  },
-                  options: {
-                      responsive: true
-                  }
-              })
-    
-    new WOW().init() */
-</script>
-<?php elseif($page === 'posts'): ?>
-<script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
-<script>
-  ClassicEditor.create(document.querySelector('#editor')).catch(error => {
-    console.error(error)
-  })
-</script>
-<?php endif; ?>
 <script src="js/admin.js"></script>
-</body>
+<?php
+  switch ($page):
+    case 'dashboard':
+      echo "<script src='js/dashboard.js'></script>";
+      break;
 
+      case 'posts':
+        echo "<script src='https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js'></script>
+        <script>
+          ClassicEditor.create(document.querySelector('#editor')).catch(error => {
+            console.error(error)
+          })
+        </script>";
+      break;
+
+    case 'users':
+      echo "<script src='js/user.js'></script>";
+      break;
+
+    case 'links':
+      echo "<script src='js/links.js'></script>";
+      break;
+    
+endswitch;
+?>
+</body>
 </html>

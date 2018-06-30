@@ -16,8 +16,8 @@ if (isset($_POST['update'])) {
     echo $e->getMessage();
   }
   echo json_encode($res);
+  http_response_code($code);
 }
-http_response_code($code);
 
 /**
  * 
@@ -45,7 +45,6 @@ function getAllUsersCount ($conn) {
   // Check for any result
   return ($stmt->rowCount() === 1) ? $result : false;
 }
-
 
 /**
  * Get specific user from DB via his ID
@@ -86,7 +85,7 @@ function fetchHashPass ($email, $conn) {
 }
 
 function checkUser ($token, $conn) {
-  $sql = 'SELECT * FROM user WHERE token = ? AND deleted = 0 ;';
+  $sql = 'SELECT * FROM user WHERE token = ? AND deleted = 0;';
   $stmt = $conn->prepare($sql);
   $stmt->execute([$token]);
   $user = $stmt->fetch();
@@ -95,11 +94,14 @@ function checkUser ($token, $conn) {
 
 function getAllUsersTeam($conn) {
   global $table;
-  $sql = 'SELECT u.*,r.*,t.name FROM user u INNER JOIN team t ON u.favouriteTeam = t.teamID INNER JOIN role r on u.roleID = r.roleID WHERE u.deleted = 0;';
+  $sql = 'SELECT u.*,r.*,t.name 
+          FROM user u INNER JOIN team t 
+          ON u.favouriteTeam = t.teamID
+          INNER JOIN role r on u.roleID = r.roleID
+          WHERE u.deleted = 0;';
   $stmt = $conn->prepare($sql);
   $stmt->execute();
   $result = $stmt->fetchAll();
   // Check for any result
   return ($stmt->rowCount() > 0) ? $result : false;
 }
-

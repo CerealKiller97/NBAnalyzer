@@ -23,6 +23,9 @@
   include '../includes/models/players/select.php';
   include '../includes/models/coach/select.php';
   include '../includes/models/navigation/select.php';
+  include '../includes/models/suggestions/select.php';
+  include '../includes/models/questions/select.php';
+
 
   include '../includes/modules/functions.php';
   

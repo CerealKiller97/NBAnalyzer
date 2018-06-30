@@ -3,7 +3,8 @@
     <div class="card mb-4 wow animated fadeIn">
       <div class="card-body d-sm-flex justify-content-between ">
         <h4 class="mb-2 mb-sm-0 pt-1">
-          <a href="http://localhost/php1/NBAnalyzer-final/admin/admin.php?page=dashboard"> <i class="fas fa-chart-pie mr-3"></i>Home Page</a>
+          <a href="http://localhost/php1/NBAnalyzer-final/admin/admin.php?page=dashboard">
+            <i class="fas fa-chart-pie mr-3"></i>Home Page</a>
           <span>/</span>
           <span>Dashboard</span>
         </h4>
@@ -92,11 +93,38 @@
           <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
         </div>
         <div class="jumbotron mt-4">
-          <p class="lead">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, cum perferendis modi veritatis accusantium blanditiis fuga
-            magni ea eligendi minus exercitationem ipsam, necessitatibus, distinctio dolorem repudiandae harum ducimus et
-            quisquam.
-          </p>
+          <h1 class="text-center">Change Log</h1>
+          <table class="table table-hover">
+
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th>Version</th>
+                <th>Change</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+              <tr>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>Larry the Bird</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="col-md-3 mb-4">

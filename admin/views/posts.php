@@ -130,4 +130,5 @@
       <button type="submit" id="postBtn" name="submit-post" class="btn btn-primary">Submit post</button>
     </form>
   </div>
+  </div>
 </main>

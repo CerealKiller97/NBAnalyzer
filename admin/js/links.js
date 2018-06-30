@@ -1,21 +1,23 @@
-/* const BASE_URL = 'http://localhost/githubNBAnalyzer/' //'http://nbanalyzer.infinityfreeapp.com'
+$(function () {
 
-let myFunction = element => $(element).attr('data-id') // za modaal da mu passujem data id iz delete btn klika
+//#region AJAX - LINKS
+  /* DELETE LINK */
+  let deleteLink = id => {
+    $.ajax({
+      method: 'POST',
+      url: `../includes/models/navigation/update.php`,
+      data: { id, delete: 'delete' },
+      dataType: 'json',
+      success: response => console.log(response),
+      error: (xhr, status, err) => console.log(xhr)
+    })
+  }
+//#endregion
 
-
-
-  /* a.k.a UPDATE USER */
-  //$('#postBtn').click(() => {
-    // console.log($('#draft')[0].checked) za checkiranje statusa
-    //console.log($('#customFile')[0].files)
-  //})
- 
-  /* LINKS */
-
-  //let linkIDGlobal
+  let linkIDGlobalScope
 
   //    ADD LINK
-/*   $('#addLinkBtn').click(function () {
+  $('#addLinkBtn').click(() => {
     let page = $('#insert-link').val()
     let rePage = /^[A-Z][a-z]{2,}$/
     let ok = true
@@ -61,15 +63,19 @@ let myFunction = element => $(element).attr('data-id') // za modaal da mu passuj
   $('.deleteLink').on('click', function (e) { // show.bs.modal
     //var id = myFunction(this)
     let linkID = $(this).attr('data-id')
-    console.log(linkID)
-    
-    linkIDGlobal = linkID
-    $('.confirm-delete').on('click', id => {
-      $('#deleteUser').modal('hide')
+
+    linkIDGlobalScope = linkID
+    $('.confirm-deleteLink').on('click', id => { 
+      console.log('co');
+      
+      $('#deleteLink').modal('hide')
       let element = e.target.parentElement.parentElement
       element.className = 'animated fadeOut'
       setTimeout(() => element.remove(), 350)
     })
-    deleteLink(linkIDGlobal)
-    console.log(linkIDGlobal)
-  }) */
+    deleteLink(linkIDGlobalScope)
+    console.log(linkIDGlobalScope)
+  })
+  
+  // UPDATE LINK
+})

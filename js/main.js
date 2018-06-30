@@ -274,8 +274,8 @@ var oldDogs = animals.filter(function(animal) {
 
 let voteSurvey = () => {
   let suggestions = document.querySelectorAll('.suggestions')
-  let resultSuggestion = suggestions.filter(suggestion => suggestion.value ) // sutra cu  
-  console.log(resultSuggestion)
+  //let resultSuggestion = suggestions.filter(suggestion => suggestion.value ) // sutra cu  
+/*   console.log(resultSuggestion)
   
  let suggestionsArr = []
   suggestions.forEach(element => {
@@ -285,7 +285,7 @@ let voteSurvey = () => {
   
   console.log(suggestionsArr)
   
-  
+   */
 
   let voteHint = document.querySelector('#voteHint')
   let answers = document.getElementsByName('survey')
@@ -380,4 +380,3 @@ let updateUser = e => e.preventDefault()
 
     setTimeout(() =>  $('#modalPoll').modal('show') , 5000)  
 }
-

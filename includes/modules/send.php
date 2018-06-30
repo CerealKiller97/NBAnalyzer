@@ -205,7 +205,3 @@ if ($data) {
   echo json_encode($data);
 } 
 http_response_code($code);
-
-
-
-

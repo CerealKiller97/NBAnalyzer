@@ -47,6 +47,19 @@ function getAllTeams($conn) {
   return ($stmt->rowCount() > 0)? $result : 'No teams found';
 }
 
+function getAllTeamsAdmin ($conn) {
+  $sql = 'SELECT t.name,t.teamID ,t.picture, t.founded, d.division, c.fullName, a.arena, conf.conference
+  FROM (((team t INNER JOIN division d ON t.divisionID = d.divisionID)
+                 INNER JOIN coach c ON t.coachID = c.coachID)
+                 INNER JOIN arena a ON t.arenaID = a.arenaID)
+                 INNER JOIN conference conf ON d.conferenceID = conf.conferenceID
+                 ORDER BY t.name ASC';
+  $stmt = $conn->prepare($sql);
+  $stmt->execute();
+  $result = $stmt->fetchAll();
+  return ($stmt->rowCount() > 0)? $result : 'No teams found';
+}
+
 /**
  * 
  * Get specific team info
